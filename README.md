@@ -9,14 +9,14 @@ The app is deployed and live on PythonAnywhere. You can access the live version 
 
 
 ## Features ✨
-- **Personalized Proposal**: Customize the page by adding the couple's names to the URL like so:  
-`/?first=BoyName&second=GirlName`
-- **Interactive Experience**: 
-- The page displays a button.
-- Hold down the button, and a marriage contract with the couple’s names appears.
-- Background music plays, enhancing the mood.
-- At the end, a heart made of two fingerprints appears, symbolizing the bond between the two.
+- **Personalized Proposal**: Customize the page by adding the couple's names to the URL like so: `/?first=BoyName&second=GirlName`
+  - Example: `http://secretbutton.pythonanywhere.com//?first=BoyName&second=GirlName`
 
+- **Interactive Experience**: 
+  - The page displays a button.
+  - Hold down the button, and a marriage contract with the couple’s names appears.
+  - Background music plays, enhancing the mood.
+  - At the end, a heart made of two fingerprints appears, symbolizing the bond between the two.
 
 - **Customizable**: The names and fingerprints change based on the input in the URL, making each proposal unique.
 
@@ -45,11 +45,7 @@ http://127.0.0.1:5000/?first=John&second=Jane
    
 
 ## Screenshots 📸
-```markdown
-![Screenshot of the App](assets/screenshot1.png)
-```
-```markdown
-![Marriage Contract Example](assets/screenshot2.png)
-```
+![Screenshot of the App](static/screenshot1.png)
+![Marriage Contract Example](static/screenshot2.png)
 
   
