@@ -45,7 +45,7 @@ http://127.0.0.1:5000/?first=John&second=Jane
    
 
 ## Screenshots 📸
-![Screenshot of the App](static/screenshoot1.png)
-![Marriage Contract Example](static/screenshoot2.png)
+![Screenshot of the App](static/screenshot.jpg)
+
 
   
