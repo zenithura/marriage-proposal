@@ -2,15 +2,15 @@
 
 This is a **Flask-based web app** designed for a unique, customizable marriage proposal experience. Simply add the couple's names to the URL, and watch as the magic unfolds!
 
-## Features ✨
-- **Personalized Proposal**: Customize the page by adding the couple's names to the URL like so:  
-`/?first=BoyName&second=GirlName`
 
 ## Deployment 🌐
-The app is deployed and live on PythonAnywhere. You can access the live version here:
+The app is deployed and live on PythonAnywhere. You can access the live version here(only work with phones):
 [**Live Demo**](http://secretbutton.pythonanywhere.com/?first=John&second=Jane)
 
 
+## Features ✨
+- **Personalized Proposal**: Customize the page by adding the couple's names to the URL like so:  
+`/?first=BoyName&second=GirlName`
 - **Interactive Experience**: 
 - The page displays a button.
 - Hold down the button, and a marriage contract with the couple’s names appears.
