@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Website</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f0f0; /* Arka plan rengi */
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .red-hole {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      border-radius: 50%;
+      position: relative;
+      top: 75px;
+    }
+
+    .progress-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100px;
+      height: 100px;
+    }
+
+    .progress-bar circle {
+      fill: none;
+      stroke: green; /* İlerleme çubuğu rengi */
+      stroke-width: 10;
+      stroke-dasharray: 314; /* Çemberin çevresi */
+      stroke-dashoffset: 314; /* Başlangıçta tamamen dolu */
+      transition: stroke-dashoffset 3s linear;
+    }
+
+    /* Yeni eklenen stil */
+    #imageContainer img {
+      width: 100px; /* Çemberin genişliği */
+      height: 100px; /* Çemberin yüksekliği */
+      object-fit: cover; /* Orantılı olarak sığdır */
+      border-radius: 50%; /* Çember şeklinde kenarlar */
+      animation: fadeIn 6s ease-in-out; /* Animasyon ekleyelim */
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* Metinlerin animasyonu */
+    @keyframes changeTextIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* Kırmızı deliğin sol tarafta olması */
+    .red-hole {
+      left: calc(50% - 50px); /* Sayfa genişliğinin yarısından 50 piksel az */
+    }
+
+
+    #change-text-in {
+      animation: changeTextIn 7s ease-in-out forwards; /* Metinlerin ortaya çıkma animasyonu */
+      opacity: 0; /* Başlangıçta görünmez */
+    }
+    #change-text-in2 {
+      animation: changeTextIn 7s ease-in-out forwards; /* Metinlerin ortaya çıkma animasyonu */
+      opacity: 0; /* Başlangıçta görünmez */
+    }
+    #change-text-in3 {
+      animation: changeTextIn 7s ease-in-out forwards; /* Metinlerin ortaya çıkma animasyonu */
+      opacity: 0; /* Başlangıçta görünmez */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="change-text-in" style="display: none;">Evlilik müqaviləsi💍</h1>
+    <p id="change-text-in2" style="display: none;">{{ first_name }} & {{ second_name }}</p>
+    <p id="change-text-in3" style="display: none;">İmzalar:</p>
+    <div class="red-hole" id="redHole">
+      <svg class="progress-bar">
+        <circle cx="50" cy="50" r="40"/>
+      </svg>
+    </div>
+    <div id="imageContainer" style="display: none;">
+      <img src="{{ url_for('static', filename='image.png') }}" alt="Your Image">
+    </div>
+  </div>
+  
+  <!-- Müzik ekleme -->
+  <audio id="bgMusic" src="{{ url_for('static', filename='music.mp3') }}" loop></audio>
+  
+  <script>
+    let progressTimeout;
+
+    document.getElementById('redHole').addEventListener('mousedown', function() {
+      let progressBar = document.querySelector('.progress-bar circle');
+      progressBar.style.strokeDashoffset = 0;
+      progressTimeout = setTimeout(function() {
+        document.getElementById('imageContainer').style.display = 'block'; // Fotoğrafın görüntülenmesi
+        document.getElementById('change-text-in').style.display = 'block';
+        document.getElementById('change-text-in2').style.display = 'block';
+        document.getElementById('change-text-in3').style.display = 'block';
+        document.getElementById('bgMusic').play();
+        document.querySelector('.red-hole').remove();
+        document.querySelector('.progress-bar').remove();
+        // Müziği başlat
+      }, 2500);
+    });
+
+    document.getElementById('redHole').addEventListener('mouseup', function() {
+      clearTimeout(progressTimeout);
+      document.querySelector('.progress-bar circle').style.strokeDashoffset = 314;
+      // Müziği durdur
+      document.getElementById('bgMusic').pause();
+    });
+  </script>
+</body>
+</html>
